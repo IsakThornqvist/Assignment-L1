@@ -1,8 +1,8 @@
 export const template = document.createElement('template')
 
 template.innerHTML = `
-<div id='helloThereContainer'> 
-<p> Hello There! Please enter your name! </p>
+<div id='submitButtonContainer'> 
+<button> Submit </button>
 </div>
 
 <style>

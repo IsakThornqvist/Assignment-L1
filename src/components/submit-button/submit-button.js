@@ -1,12 +1,12 @@
-import { template } from './hello-there-template.js'
+import { template } from './submit-button-template.js'
 
-customElements.define('hello-there',
+customElements.define('submit-button',
 
   /**
    *
    */
   class extends HTMLElement {
-    #myHelloThere
+    #mySubmitButton
 
     /**
      *
@@ -16,20 +16,21 @@ customElements.define('hello-there',
 
       this.attachShadow({ mode: 'open' })
       this.shadowRoot.appendChild(template.content.cloneNode(true))
-      this.#myHelloThere = this.shadowRoot.querySelector('#helloThereContainer')
+      this.#mySubmitButton = this.shadowRoot.querySelector('#submitButtonContainer')
     }
 
     /**
      *
      */
     connectedCallback () {
-      console.log('<hello-there> added')
+      console.log('<submit-button> added')
     }
 
     /**
      *
      */
     disconnectedCallback () {
-      console.log('<hello-there> removed')
+      console.log('<submit-button> removed')
     }
-  })
+  }
+)

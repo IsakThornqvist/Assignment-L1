@@ -8,8 +8,8 @@
     "dev": "vite",
     "build": "vite build",
     "serve": "vite preview",
-    "lint": "npx eslint ./components || exit 0",
-    "lint:fix": "npx eslint ./components --fix || exit 0"
+    "lint": "npx eslint ./src/components || exit 0",
+    "lint:fix": "npx eslint ./src/components --fix || exit 0"
   },
   "contributors": [
     "Isak Thörnqvist <it222hp@student.lnu.se>"
