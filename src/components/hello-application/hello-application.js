@@ -5,12 +5,11 @@ import '../submit-button/index.js'
 customElements.define('hello-application',
 
   /**
-   * Custom element representing a hello there custom element
+   * Custom element representing a hello application custom element
    */
   class extends HTMLElement {
-    #myHelloThere
+    #myHelloApplication
     #nicknameForm
-    #submitButton
 
     /**
      * Creates an instance of the hello-application custom element.
@@ -20,15 +19,15 @@ customElements.define('hello-application',
 
       this.attachShadow({ mode: 'open' })
       this.shadowRoot.appendChild(template.content.cloneNode(true))
-      this.#myHelloThere = this.shadowRoot.querySelector('#helloThereContainer')
-      this.#nicknameForm = this.shadowRoot.querySelector('#nicknameContainer')
-      this.#submitButton = this.shadowRoot.querySelector('#submitButtonContainer')
+      this.#myHelloApplication = this.shadowRoot.querySelector('#helloApplicationContainer')
+      this.#nicknameForm = this.shadowRoot.querySelector('nickname-form')
     }
 
     /**
      * Called when the hello-application element is added to the DOM.
      */
     connectedCallback () {
+      this.#nicknameForm.addEventListener('nickname-submitted', this.handleSubmitName)
       console.log('<hello-application> added')
     }
 
@@ -37,5 +36,23 @@ customElements.define('hello-application',
      */
     disconnectedCallback () {
       console.log('<hello-application> removed')
+    }
+
+    /**
+     * Handles the nickname-submitted event from the nickname form.
+     *
+     * @param {CustomEvent} event - The event containing the submitted nickname.
+     */
+    handleSubmitName = (event) => {
+      this.nickname = event.detail.nickname
+
+      this.superSecretSuprise()
+    }
+
+    /**
+     * Placeholder for now
+     */
+    superSecretSuprise () {
+      console.log('super secret happens')
     }
   })

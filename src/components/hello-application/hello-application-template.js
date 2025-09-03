@@ -1,11 +1,11 @@
 export const template = document.createElement('template')
 
 template.innerHTML = `
-<div id='helloThereContainer'> 
+<div id='helloApplicationContainer'> 
 
 <nickname-form> </nickname-form>
-<submit-button> </submit-button>
-
+<!-- <submit-button> </submit-button>
+ -->
 </div>
 
 <style>

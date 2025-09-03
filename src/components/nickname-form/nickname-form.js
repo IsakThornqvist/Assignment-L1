@@ -24,6 +24,23 @@ customElements.define('nickname-form',
      * Called when the element is added to the DOM.
      */
     connectedCallback () {
+      this.shadowRoot.querySelector('#nicknameForm').addEventListener('submit', (event) => {
+        event.preventDefault()
+
+        const nicknameInput = this.shadowRoot.querySelector('#nicknameInput')
+        const nickname = nicknameInput.value.trim()
+
+        if (nicknameInput) {
+          const nicknameSubmittedEvent = new CustomEvent('nickname-submitted', {
+            detail: { nickname },
+            bubbles: true,
+            composed: true
+          })
+
+          this.dispatchEvent(nicknameSubmittedEvent)
+        }
+        console.log('Nickname submitted:', nickname)
+      })
       console.log('<nickname-form> added')
     }
 
