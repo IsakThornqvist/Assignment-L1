@@ -47,6 +47,7 @@ customElements.define('hello-application',
       this.nickname = event.detail.nickname
 
       this.superSecretSuprise()
+      this.hideNickNameForm()
     }
 
     /**
@@ -54,5 +55,12 @@ customElements.define('hello-application',
      */
     superSecretSuprise () {
       console.log('super secret happens')
+    }
+
+    /**
+     * Hides the nickname form by adding the 'hidden' class.
+     */
+    hideNickNameForm () {
+      this.#nicknameForm.classList.add('hidden')
     }
   })

@@ -4,11 +4,12 @@ template.innerHTML = `
 <div id='helloApplicationContainer'> 
 
 <nickname-form> </nickname-form>
-<!-- <submit-button> </submit-button>
- -->
+
 </div>
 
 <style>
-
+.hidden {
+    display: none;
+}
 </style>
 `
