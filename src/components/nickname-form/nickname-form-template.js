@@ -11,10 +11,9 @@ template.innerHTML = `
     <div id='submitButtonContainer'>
       <button id='submitButton' type='submit'>
         Submit
-      </button>
-    </div>
-    <div id='returnContainer'>
-    <button id='returnButton'> Go Again </button>
+    </button>
+</div>
+<div id='returnContainer'>
     </div>
 </form>
 </div>
@@ -126,22 +125,6 @@ display: none;
   transition: all 0.3s ease;
   position: relative;
   overflow: hidden;
-}
-
-#returnButton {
-  padding: 15px 30px;
-  border: none;
-  border-radius: 25px;
-  background: linear-gradient(45deg, white,#00ffff);
-  color: #000;
-  font-weight: bold;
-  font-size: 1.1rem;
-  font-family: 'Orbitron', monospace;
-  cursor: pointer;
-  transition: all 0.3s ease;
-  position: relative;
-  overflow: hidden;
-  display:none;
 }
 
 #submitButton::before {

@@ -10,6 +10,7 @@ customElements.define('hello-application',
   class extends HTMLElement {
     #myHelloApplication
     #nicknameForm
+    #returnButton
 
     /**
      * Creates an instance of the hello-application custom element.
@@ -21,6 +22,7 @@ customElements.define('hello-application',
       this.shadowRoot.appendChild(template.content.cloneNode(true))
       this.#myHelloApplication = this.shadowRoot.querySelector('#helloApplicationContainer')
       this.#nicknameForm = this.shadowRoot.querySelector('nickname-form')
+      this.#returnButton = this.shadowRoot.querySelector('#returnButton')
     }
 
     /**
@@ -28,6 +30,9 @@ customElements.define('hello-application',
      */
     connectedCallback () {
       this.#nicknameForm.addEventListener('nickname-submitted', this.handleSubmitName)
+
+      this.#returnButton.addEventListener('click', this.handleReturnClick)
+
       console.log('<hello-application> added')
     }
 
@@ -62,5 +67,33 @@ customElements.define('hello-application',
      */
     hideNickNameForm () {
       this.#nicknameForm.classList.add('hidden')
+      this.#returnButton.classList.remove('hidden')
+    }
+
+    /**
+     * Handles the return button click event.
+     */
+    handleReturnClick = () => {
+      this.showNickNameForm()
+    }
+
+    /**
+     * Clears the nickname input field in the nickname form.
+     */
+    clearNameInput () {
+      const nicknameInput = this.#nicknameForm.shadowRoot.querySelector('#nicknameInput')
+      if (nicknameInput) {
+        nicknameInput.value = ''
+      }
+    }
+
+    /**
+     * Shows the nickname form by removing the 'hidden' class.
+     */
+    showNickNameForm () {
+      this.clearNameInput()
+      this.#nicknameForm.classList.remove('hidden')
+      this.#returnButton.classList.add('hidden')
+      console.log('Nickname form shown again')
     }
   })
