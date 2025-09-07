@@ -11,6 +11,7 @@ customElements.define('hello-application',
     #myHelloApplication
     #nicknameForm
     #returnButton
+    #nameBackwards
 
     /**
      * Creates an instance of the hello-application custom element.
@@ -23,6 +24,7 @@ customElements.define('hello-application',
       this.#myHelloApplication = this.shadowRoot.querySelector('#helloApplicationContainer')
       this.#nicknameForm = this.shadowRoot.querySelector('nickname-form')
       this.#returnButton = this.shadowRoot.querySelector('#returnButton')
+      this.#nameBackwards = this.shadowRoot.querySelector('#nameBackwards')
     }
 
     /**
@@ -50,6 +52,15 @@ customElements.define('hello-application',
      */
     handleSubmitName = (event) => {
       this.nickname = event.detail.nickname
+
+      const nameBackwards = this.nickname.split('').reverse().join('')
+
+      this.#nameBackwards.textContent = nameBackwards
+
+      const resultMessage = this.shadowRoot.querySelector('#resultMessage')
+      if (resultMessage) {
+        resultMessage.textContent = `${this.nickname} spelled backwards is`
+      }
 
       this.superSecretSuprise()
       this.hideNickNameForm()
